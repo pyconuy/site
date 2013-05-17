@@ -57,7 +57,7 @@ def sign_up(request):
             form.save()
             user = authenticate(username=form.cleaned_data['username'], password=form.cleaned_data['password1'])
             login(request, user)
-            messages.success(request, 'You have been successfully registered to PyCon Uruguay 2012.')
+            messages.success(request, 'You have been successfully registered to PyCon Uruguay 2013.')
             return HttpResponseRedirect(_get_redirect(request, reverse('account:profile')))
     else:
         form = forms.UserCreationForm()

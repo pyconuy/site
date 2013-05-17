@@ -2,5 +2,5 @@
 *.pyc
 *.sqlite
 *.db
-pyconuy2012/media
+pyconuy/media
 settings_local.py
