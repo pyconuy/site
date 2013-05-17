@@ -65,8 +65,14 @@
                 </div>
                 <div class="span9 pull-right">
                     <ul class="menu-list">
-                        <li class="menu-normal pull-left">
-                            <a href="{% page_id_url 'about' %}">{% trans 'About' %}</a>
+                        <li class="menu pull-left">
+                            <a href="{% page_url 'about' %}">{% trans 'About' %}</a>
+                            <ul>
+                                <li><a class="sub_menu" href="{% page_url 'about' %}">{% trans 'What is PyCon?' %}</a></li>
+                                <li><a class="sub_menu" href="#">{% trans 'Code of Conduct' %}</a></li>
+                                <li><a class="sub_menu" href="#">{% trans 'Volunteers' %}</a></li>
+                                <li><a class="sub_menu" href="/2012">PyCon 2012</a></li>
+                            </ul>
                         </li>
                         <li class="menu pull-left">
                             <a href="{% url 'account:sign_up' %}">{% trans 'Registration' %}</a>
@@ -88,8 +94,13 @@
                                 <li><a class="sub_menu" href="{% url 'main:schedule' %}">{% trans 'Conference Schedule' %}</a></li>
                             </ul>
                         </li>
-                        <li class="menu-normal pull-left">
+                        <li class="menu pull-left">
                             <a href="{% url 'main:sponsors' %}">{% trans 'Sponsors' %}</a>
+                            <ul>
+                                <li><a class="sub_menu" href="{% url 'main:sponsors' %}">{% trans 'PyCon Sponsors' %}</a></li>
+                                <li><a class="sub_menu" href="#">{% trans 'Prospectus' %}</a></li>
+                                <li><a class="sub_menu" href="#">{% trans 'Apply to be a Sponsor' %}</a></li>
+                            </ul>
                         </li>
                         <li class="menu pull-left">
                             <a href="#">{% trans 'Venue' %}</a>

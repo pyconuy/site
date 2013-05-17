@@ -87,6 +87,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'cms.context_processors.media',
     'sekizai.context_processors.sekizai',
     'django.contrib.messages.context_processors.messages',
+    'main.context_processors.add_site_config',
 )
 
 INSTALLED_APPS = (

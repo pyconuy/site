@@ -44,6 +44,8 @@
                 </p>
             </div>
         </div>
+        {% empty %}
+            <h2>{% trans 'Coming soon!' %}</h2>
         {% endfor %}
         <div class="row">
             <div class="span12">

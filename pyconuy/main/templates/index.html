@@ -43,6 +43,7 @@
 {% endblock %}
 
 {% block content %}
+    {% if config.show_sponsors %}
     <div class="row sponsors">
         <div class="span12">
             <h1>{% trans 'Sponsors' %}<small class="small">{% trans 'What important companies are behind this?' %}</small></h1>
@@ -59,11 +60,14 @@
                 </div>
             </div>
             {% endfor %}
-            <div class="row"><div class="span3 offset9">
-                <a class="button button-blue" href="{% url 'main:sponsors' %}">{% trans 'View full list of Sponsors' %}</a>
-            </div></div>
+            <div class="row">
+                <div class="span3 offset9">
+                    <a class="button button-blue" href="{% url 'main:sponsors' %}">{% trans 'View full list of Sponsors' %}</a>
+                </div>
+            </div>
         </div>
     </div>
+    {% endif %}
     <div class="row">
         <div class="span6">
             <div class="row">
@@ -98,11 +102,11 @@
         <div class = "span6">
             <div class="row">
                 <div class="span6">
-                    <h1>{% trans 'Call for Proposals' %}<small class="small">{% trans 'Closed' %}</small></h1>
+                    <h1>{% trans 'Call for Proposals' %}</h1>
                     <div class="box-text back box-yellow">
-                        <p class="text-top"><strong>{% trans 'Opens' %}</strong> >{% trans ' Coming soon!' %}</p>
-                        <p class="text-bottom"><strong>{% trans 'Deadline' %}</strong> >{% trans ' Coming soon!' %}</p>
-                        <p class="text-bottom"><strong>{% trans 'Acceptance' %}</strong> >{% trans  ' Coming soon!' %}</p>
+                        <p class="text-top"><strong>{% trans 'Opens' %}</strong> > {{ config.call_for_proposals_open|default:_('Coming soon!') }}</p>
+                        <p class="text-bottom"><strong>{% trans 'Deadline' %}</strong> > {{ config.call_for_proposals_deadline|default:_('Coming soon!') }}</p>
+                        <p class="text-bottom"><strong>{% trans 'Acceptance' %}</strong> > {{ config.call_for_proposals_acceptance|default:_('Coming soon!') }}</p>
                     </div>
 
                 </div>
@@ -111,11 +115,15 @@
                 <div class="span6">
                     <h1>{% trans 'When' %}<small class="small">{% trans 'What appointments should I cancel?' %}</small></h1>
                     <div class="box-text back box-yellow">
-                        <p class="text-top">{% trans ' Saturday 10th & Sunday 11th November' %}</p>
-                        <p class="text-bottom"><strong>{% trans 'Talks' %}</strong> > {% trans ' Saturday from 9:00 to 19:00' %}</p>
-                        <p class="text-bottom"><strong>{% trans 'Sprints' %}</strong> >{% trans ' Sunday from 10:00 to 18:00' %}</p>
+                        <p class="text-top">{{ config.event_start_date|date:''|default:_('Coming soon!') }}</p>
+                        {% if config.event_start_date %}
+                            <p class="text-bottom"><strong>{% trans 'Talks' %}</strong> > {{ config.event_talks_date|date:''|default:_('Coming soon!') }}</p>
+                            <p class="text-bottom"><strong>{% trans 'Sprints' %}</strong> > {{ config.event_sprints_date|date:''|default:_('Coming soon!') }}</p>
+                        {% endif %}
                     </div>
+                    {% if config.event_start_date %}
                     <a href="{% url 'main:schedule' %}" class="button button-yellow over pull-right">{% trans 'Schedule it' %}</a>
+                    {% endif %}
                 </div>
             </div>
             <div class="row">
@@ -123,11 +131,20 @@
                     <h1>{% trans 'Where' %}<small class="small">{% trans 'Take me there!' %}</small></h1>
 
                     <div class="box-text back box-blue">
-                        <p class="text-top">LATU</p>
-                        <p class="text-bottom">Laboratorio Tecnológico del Uruguay</p>
-                        <p class="text-bottom">Av. Italia 6201 - Montevideo</p>
+
+                        <p class="text-top">{{ config.venue_name|default:_('Coming soon!') }}</p>
+                        {% if config.venue_name %}
+                        {% if config.venue_long_name %}
+                        <p class="text-bottom">{{ config.venue_long_name }}</p>
+                        {% endif %}
+                        <p class="text-bottom">{{ config.venue_address }}</p>
+                        {% endif %}
                     </div>
-                    <a rel="nofollow" href="https://maps.google.com.uy/maps?q=latu&hl=en&ll=-34.877306,-56.077266&spn=0.009805,0.021136&fb=1&gl=uy&hq=latu&hnear=0x959f80ffc63bf7d3:0x6b321b2e355bec99,Montevideo&cid=0,0,10519268855607095324&t=m&z=16&iwloc=A" class="button button-blue over pull-right">{% trans 'See Map' %}</a>
+                    {% if config.venue_latitude and config.venue_longitude %}
+                    <a rel="nofollow" href="https://maps.google.com.uy/maps?q=latu&hl=en&ll={{ config.venue_latitude }},{{ config.venue_longitude }}&spn=0.009805,0.021136&fb=1&gl=uy&hq=latu&hnear=0x959f80ffc63bf7d3:0x6b321b2e355bec99,Montevideo&cid=0,0,10519268855607095324&t=m&z=16&iwloc=A" class="button button-blue over pull-right">
+                        {% trans 'View map' %}
+                    </a>
+                    {% endif %}
                 </div>
             </div>
         </div>
