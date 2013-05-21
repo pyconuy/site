@@ -3,13 +3,10 @@ from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
 from django.shortcuts import render_to_response
-from symposion.speakers.models import Speaker
-from symposion.proposals.models import Proposal
-from symposion.schedule.models import Presentation
 from django.template import RequestContext
-from symposion.sponsors_pro.models import Sponsor
-from symposion.proposals.models import PresentationCategory
+from conference.models import Speaker, Proposal, Presentation, Sponsor, PresentationCategory
 from main.forms import ProposalForm
+
 
 def index(request):
     return render_to_response('index.html',

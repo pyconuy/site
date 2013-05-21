@@ -3,6 +3,7 @@ from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from django.forms.models import model_to_dict
 
+
 class MenuPlugin(CMSPlugin):
 
     title = models.CharField(max_length=30)

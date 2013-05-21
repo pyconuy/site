@@ -1,5 +1,5 @@
 from django import forms
-from symposion.proposals.models import PresentationKind, Proposal
+from conference.models import PresentationKind, Proposal
 from bootstrap.forms import BootstrapForm
 from django.utils.translation import ugettext_lazy as _
 

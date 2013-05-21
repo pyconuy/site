@@ -99,14 +99,8 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.admin',
 
-    #symposion
+    #pinax
     'pinax.apps.account',
-    'symposion.conference',
-    'symposion.speakers',
-    'symposion.proposals',
-    'symposion.review',
-    'symposion.sponsors_pro',
-    'symposion.schedule',
     'emailconfirmation',
 
     #cms
@@ -134,6 +128,7 @@ INSTALLED_APPS = (
     'south',
 
     'main',
+    'conference',
     'background',
     'common',
     'account',
