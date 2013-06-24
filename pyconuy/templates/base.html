@@ -69,8 +69,8 @@
                             <a href="{% page_url 'about' %}">{% trans 'About' %}</a>
                             <ul>
                                 <li><a class="sub_menu" href="{% page_url 'about' %}">{% trans 'What is PyCon?' %}</a></li>
-                                <li><a class="sub_menu" href="#">{% trans 'Code of Conduct' %}</a></li>
-                                <li><a class="sub_menu" href="#">{% trans 'Volunteers' %}</a></li>
+                                <li><a class="sub_menu" href="{% page_url 'code-conduct' %}">{% trans 'Code of Conduct' %}</a></li>
+                                <li><a class="sub_menu" href="{% page_url 'volunteers' %}">{% trans 'Volunteers' %}</a></li>
                                 <li><a class="sub_menu" href="/2012">PyCon 2012</a></li>
                             </ul>
                         </li>
@@ -98,14 +98,14 @@
                             <a href="{% url 'main:sponsors' %}">{% trans 'Sponsors' %}</a>
                             <ul>
                                 <li><a class="sub_menu" href="{% url 'main:sponsors' %}">{% trans 'PyCon Sponsors' %}</a></li>
-                                <li><a class="sub_menu" href="#">{% trans 'Prospectus' %}</a></li>
-                                <li><a class="sub_menu" href="#">{% trans 'Apply to be a Sponsor' %}</a></li>
+                                <li><a class="sub_menu" href="{% page_url 'prospectus' %}">{% trans 'Prospectus' %}</a></li>
+                                <li><a class="sub_menu" href="{% page_url 'apply-sponsor' %}">{% trans 'Apply to be a Sponsor' %}</a></li>
                             </ul>
                         </li>
                         <li class="menu pull-left">
                             <a href="#">{% trans 'Venue' %}</a>
                             <ul>
-                                <li><a class="sub_menu" href="{% page_id_url 'place' %}">{% trans 'The Place' %}</a></li>
+                                <li><a class="sub_menu" href="{% page_url 'place' %}">{% trans 'The Place' %}</a></li>
                             </ul>
                         </li>
                     </ul>

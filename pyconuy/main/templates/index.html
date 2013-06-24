@@ -102,7 +102,13 @@
         <div class = "span6">
             <div class="row">
                 <div class="span6">
-                    <h1>{% trans 'Call for Proposals' %}</h1>
+                    <h1>
+                        {% if config.can_add_proposal %}
+                            <a class="button button-blue pull-right" href="{% url 'main:proposal_add' %}">{% trans 'Send a proposal' %}</a>
+                        {% endif %}
+
+                        {% trans 'Call for Proposals' %}
+                    </h1>
                     <div class="box-text back box-yellow">
                         <p class="text-top"><strong>{% trans 'Opens' %}</strong> > {{ config.call_for_proposals_open|default:_('Coming soon!') }}</p>
                         <p class="text-bottom"><strong>{% trans 'Deadline' %}</strong> > {{ config.call_for_proposals_deadline|default:_('Coming soon!') }}</p>

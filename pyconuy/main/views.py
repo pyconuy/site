@@ -4,7 +4,9 @@ from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
 from django.shortcuts import render_to_response
 from django.template import RequestContext
+from django.conf import settings
 from conference.models import Speaker, Proposal, Presentation, Sponsor, PresentationCategory
+from conference.utils import send_email
 from main.forms import ProposalForm
 
 
@@ -34,13 +36,13 @@ def proposal_add(request):
 
         if form.is_valid():
 
-            #save speaker
+            # Save speaker
             speaker.biography = form.cleaned_data['biography']
             speaker.annotation = speaker.annotation or ''
             speaker.save()
 
-            #save proposal
-            Proposal.objects.create(
+            # Save proposal
+            proposal = Proposal.objects.create(
                 title=form.cleaned_data['title'],
                 description=form.cleaned_data['description'],
                 kind=form.cleaned_data['kind'],
@@ -52,6 +54,11 @@ def proposal_add(request):
                 speaker=speaker,
                 submitted=datetime.datetime.now(),
                 cancelled=False)
+
+            # Send to speakers@python.org.uy
+            send_email(settings.PROPOSALS_SEND_TO, 'proposal', context={
+                'proposal': proposal,
+            })
 
             return HttpResponseRedirect('/proposal-sent')
     else:

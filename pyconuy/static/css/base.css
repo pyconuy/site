@@ -57,6 +57,7 @@ a:hover {
     top: 15px;
     left: 50%;
     margin-left: -470px;
+    z-index: 200;
 }
 
 form {

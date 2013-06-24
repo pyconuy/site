@@ -182,6 +182,8 @@ LOGGING = {
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
+PROPOSALS_SEND_TO = ['speakers@python.org.uy']
+
 LOGIN_URL = '/sign'
 LOGOUT_URL = '/sign-out'
 LOGIN_REDIRECT_URL = '/profile'

@@ -1,0 +1,1 @@
+PyCon - {{ proposal.speaker.get_full_name }} has submitted a new proposal

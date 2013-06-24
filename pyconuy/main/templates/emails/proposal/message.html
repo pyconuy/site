@@ -1,0 +1,37 @@
+<h1>Proposal</h1>
+<p>{{ proposal.speaker.user.username }} ({{ proposal.speaker.user.get_full_name|default:'No name specified' }}) has submitted a new proposal.</p>
+
+<table border="0">
+  <tr>
+    <td><strong>Title:</strong></td>
+    <td>{{ proposal.title }}</td>
+  </tr>
+
+  <tr>
+    <td><strong>Kind:</strong></td>
+    <td>{{ proposal.kind.name }}</td>
+  </tr>
+
+  <tr>
+    <td><strong>Audience Level:</strong></td>
+    <td>{{ proposal.get_audience_level_display }}</td>
+  </tr>
+
+  <tr>
+    <td><strong>Duration:</strong></td>
+    <td>{{ proposal.get_duration_display }}</td>
+  </tr>
+</table>
+
+
+<h2>Abstract</h2>
+{{ proposal.abstract }}
+
+<h2>Description</h2>
+<p>{{ proposal.description }}</p>
+
+<h2>Additional Notes</h2>
+{{ proposal.additional_notes }}
+
+<h2>Speaker's Biography</h2>
+{{ proposal.speaker.biography }}
