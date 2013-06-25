@@ -69,18 +69,6 @@
                             <a href="{% page_id_url 'about' %}">{% trans 'About' %}</a>
                         </li>
                         <li class="menu pull-left">
-                            <a href="{% url 'account:sign_up' %}">{% trans 'Registration' %}</a>
-                            <ul>
-                                {% if user.is_authenticated %}
-                                    <li><a class="sub_menu" href="{% url 'account:profile' %}">{% trans 'My Profile' %}</a></li>
-                                    <li><a class="sub_menu" href="{% url 'account:sign_out' %}">{% trans 'Sign Out' %}</a></li>
-                                {% else %}
-                                    <li><a class="sub_menu" href="{% url 'account:sign_in' %}">{% trans 'Sign In' %}</a></li>
-                                    <li><a class="sub_menu" href="{% url 'account:sign_up' %}">{% trans 'Sign Up' %}</a></li>
-                                {% endif %}
-                            </ul>
-                        </li>
-                        <li class="menu pull-left">
                             <a href="#">{% trans 'Schedule' %}</a>
                             <ul>
                                 <li><a class="sub_menu" href="{% url 'main:talks' %}">{% trans 'Talks' %}</a></li>
@@ -99,11 +87,6 @@
                         </li>
                     </ul>
                     <ul class="links" >
-                        {% if user.is_authenticated %}
-                        <li><a class="sub_menu" href="{% url 'account:profile' %}">{% trans 'My Profile' %}</a></li>
-                        {% else %}
-                        <li><a class="sub_menu" href="{% url 'account:sign' %}">{% trans 'Sign In' %}</a></li>
-                        {% endif %}
                         {% if LANGUAGE_CODE == 'es' %}
                         <li><a  href="/en/"><img class="flags" src="{% static 'img/gb.png' %}" /> English</a></li>
                         {% else %}

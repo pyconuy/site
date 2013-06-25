@@ -17,7 +17,6 @@
 {% block class %}index{% endblock %}
 
 {% block slider %}
-<a class="button button-blue register" href="{% url 'account:sign_up' %}">{% trans 'Register now!' %}</a>
 <a class="button button-yellow talks" href="{% url 'main:talks' %}">{% trans 'View talks' %}</a>
 <div class="flexslider">
     <ul class="slides">
@@ -104,7 +103,7 @@
                         <p class="text-bottom"><strong>{% trans 'Talks' %}</strong> > {% trans ' Saturday from 9:00 to 19:00' %}</p>
                         <p class="text-bottom"><strong>{% trans 'Sprints' %}</strong> >{% trans ' Sunday from 10:00 to 18:00' %}</p>
                     </div>
-                    <a href="{% url 'main:schedule' %}" class="button button-yellow over pull-right">{% trans 'Schedule it' %}</a>
+                    <a href="{% url 'main:schedule' %}" class="button button-yellow over pull-right">{% trans 'View schedule' %}</a>
                 </div>
             </div>
             <div class="row">
