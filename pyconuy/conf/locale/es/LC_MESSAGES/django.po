@@ -592,11 +592,11 @@ msgstr "Ver entradas para"
 msgid "See entries tagged"
 msgstr "Ver entradas etiquetadas"
 
-#: pyconuy2012/settings.py:148
+#: pyconuy/settings.py:148
 msgid "English"
 msgstr "inglés"
 
-#: pyconuy2012/settings.py:149
+#: pyconuy/settings.py:149
 msgid "Spanish"
 msgstr "español"
 
