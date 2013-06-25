@@ -110,9 +110,9 @@
                         {% trans 'Call for Proposals' %}
                     </h1>
                     <div class="box-text back box-yellow">
-                        <p class="text-top"><strong>{% trans 'Opens' %}</strong> > {{ config.call_for_proposals_open|default:_('Coming soon!') }}</p>
-                        <p class="text-bottom"><strong>{% trans 'Deadline' %}</strong> > {{ config.call_for_proposals_deadline|default:_('Coming soon!') }}</p>
-                        <p class="text-bottom"><strong>{% trans 'Acceptance' %}</strong> > {{ config.call_for_proposals_acceptance|default:_('Coming soon!') }}</p>
+                        <p class="text-top"><strong>{% trans 'Opens' %}</strong> > {{ config.call_for_proposals_open|date|default:_('Coming soon!') }}</p>
+                        <p class="text-bottom"><strong>{% trans 'Deadline' %}</strong> > {{ config.call_for_proposals_deadline|date|default:_('Coming soon!') }}</p>
+                        <p class="text-bottom"><strong>{% trans 'Acceptance' %}</strong> > {{ config.call_for_proposals_acceptance|date|default:_('Coming soon!') }}</p>
                     </div>
 
                 </div>
