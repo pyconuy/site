@@ -2,6 +2,7 @@ from cms.models import CMSPlugin, Page
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from django.forms.models import model_to_dict
+from django.utils import timezone
 
 
 class MenuPlugin(CMSPlugin):
@@ -50,5 +51,16 @@ class SiteConfig(models.Model):
     def __unicode__(self):
         return unicode(self.site)
 
+    @property
+    def can_add_proposal(self):
+        if self.call_for_proposals_open is None:
+            return False
+        elif self.call_for_proposals_deadline is None:
+            return False
+        else:
+            return self.call_for_proposals_open <= timezone.now() <= self.call_for_proposals_deadline
+
     def to_dict(self):
-        return model_to_dict(self)
+        value = model_to_dict(self)
+        value['can_add_proposal'] = self.can_add_proposal
+        return value
