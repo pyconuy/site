@@ -63,12 +63,15 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'cms.middleware.multilingual.MultilingualURLMiddleware',
+    #'cms.middleware.multilingual.MultilingualURLMiddleware',
+    'main.middleware.multilingual.MultilingualURLMiddleware',
     'cms.middleware.page.CurrentPageMiddleware',
     'cms.middleware.user.CurrentUserMiddleware',
     'cms.middleware.toolbar.ToolbarMiddleware',
     'cmsplugin_blog.middleware.MultilingualBlogEntriesMiddleware',
 )
+
+OFFSITE_URLS = ['/2012']
 
 ROOT_URLCONF = 'pyconuy.urls'
 WSGI_APPLICATION = 'pyconuy.wsgi.application'
@@ -88,6 +91,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'sekizai.context_processors.sekizai',
     'django.contrib.messages.context_processors.messages',
     'main.context_processors.add_site_config',
+    'main.context_processors.add_settings',
 )
 
 INSTALLED_APPS = (
@@ -183,6 +187,8 @@ LOGGING = {
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 PROPOSALS_SEND_TO = ['speakers@python.org.uy']
+
+SHOW_VIDEOS_OPTION = False
 
 LOGIN_URL = '/sign'
 LOGOUT_URL = '/sign-out'
