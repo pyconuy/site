@@ -63,12 +63,15 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'cms.middleware.multilingual.MultilingualURLMiddleware',
+    #'cms.middleware.multilingual.MultilingualURLMiddleware',
+    'main.middleware.multilingual.MultilingualURLMiddleware',
     'cms.middleware.page.CurrentPageMiddleware',
     'cms.middleware.user.CurrentUserMiddleware',
     'cms.middleware.toolbar.ToolbarMiddleware',
     'cmsplugin_blog.middleware.MultilingualBlogEntriesMiddleware',
 )
+
+MULTILINGUAL_URL_PREPEND = '/2012/'
 
 ROOT_URLCONF = 'pyconuy2012.urls'
 WSGI_APPLICATION = 'pyconuy2012.wsgi.application'
