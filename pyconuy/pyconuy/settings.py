@@ -73,8 +73,8 @@ MIDDLEWARE_CLASSES = (
 
 MULTILINGUAL_URL_PREPEND = '/2012/'
 
-ROOT_URLCONF = 'pyconuy2012.urls'
-WSGI_APPLICATION = 'pyconuy2012.wsgi.application'
+ROOT_URLCONF = 'pyconuy.urls'
+WSGI_APPLICATION = 'pyconuy.wsgi.application'
 
 TEMPLATE_DIRS = (
     rel('templates'),
@@ -135,7 +135,7 @@ INSTALLED_APPS = (
     'bootstrap',
     'south',
 
-    #pyconuy2012
+    #pyconuy
     'main',
     'background',
     'common',

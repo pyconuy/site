@@ -1,5 +1,5 @@
 from django.db import models
-from pyconuy2012.settings import LANGUAGES
+from pyconuy.settings import LANGUAGES
 
 class Background(models.Model):
 

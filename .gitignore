@@ -2,5 +2,6 @@
 *.pyc
 *.sqlite
 *.db
-pyconuy2012/media
+pyconuy/media
+pyconuy/collectedstatic
 settings_local.py
