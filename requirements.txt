@@ -1,6 +1,6 @@
 Django==1.4
 Markdown==2.2.0
-PIL==1.1.7
+Pillow==2.0.0
 South==0.7.6
 argparse==1.2.1
 -e git://github.com/earle/django-bootstrap.git@9ec5697aee8fed5b612ac8a0a40bb1921e9390e8#egg=django-bootstrap-dev
@@ -23,5 +23,5 @@ pytz==2012d
 simple-translation==0.8.6
 wsgiref==0.1.2
 django-email-confirmation==0.2
-Pinax==0.9a2
 django-timezones==0.2
+Pinax==0.9a2
