@@ -93,8 +93,20 @@
                     </span>
                 </div>
             </div>
+
+            <div class="row">
+                <div class="span6">
+                    <h1>{% trans 'Call for Proposals' %}<small class="small">{% trans 'Closed' %}</small></h1>
+                    <div class="box-text back box-yellow">
+                        <p class="text-top"><strong>{% trans 'Opens' %}</strong> >{% trans ' August 29, 2012' %}</p>
+                        <p class="text-bottom"><strong>{% trans 'Deadline' %}</strong> >{% trans ' October 29, 2012' %}</p>
+                        <p class="text-bottom"><strong>{% trans 'Acceptance' %}</strong> >{% trans  ' November 1, 2012' %}</p>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class = "span6">
+
+        <div class="span6">
             <div class="row">
                 <div class="span6">
                     <h1>{% trans 'When' %}<small class="small">{% trans 'What appointments should I cancel?' %}</small></h1>
@@ -118,20 +130,20 @@
                     <a rel="nofollow" href="https://maps.google.com.uy/maps?q=latu&hl=en&ll=-34.877306,-56.077266&spn=0.009805,0.021136&fb=1&gl=uy&hq=latu&hnear=0x959f80ffc63bf7d3:0x6b321b2e355bec99,Montevideo&cid=0,0,10519268855607095324&t=m&z=16&iwloc=A" class="button button-blue over pull-right">{% trans 'See Map' %}</a>
                 </div>
             </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="span6">
-            <h1>{% trans 'Call for Proposals' %}<small class="small">{% trans 'Closed' %}</small></h1>
-            <div class="box-text back box-yellow">
-                <p class="text-top"><strong>{% trans 'Opens' %}</strong> >{% trans ' August 29, 2012' %}</p>
-                <p class="text-bottom"><strong>{% trans 'Deadline' %}</strong> >{% trans ' October 29, 2012' %}</p>
-                <p class="text-bottom"><strong>{% trans 'Acceptance' %}</strong> >{% trans  ' November 1, 2012' %}</p>
+
+            <div class="row">
+                <div class="span6">
+                    <h1>{% trans 'Videos' %}<small class="small">{% trans 'Watch the talks' %}</small></h1>
+
+                    <div class="box-text back box-blue">
+                        <p class="text-top">{% trans "Don't miss any detail, watch your favorite talks again." %}</p>
+                        <a class="button button-blue pull-right" href="{% page_url 'event-videos' %}">{% trans 'Event videos' %}</a>
+                    </div>
+                </div>
             </div>
-            
         </div>
-        
     </div>
+    
 {% endblock %}
 
 {% block js %}
