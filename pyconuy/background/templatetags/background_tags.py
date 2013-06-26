@@ -6,7 +6,10 @@ register = template.Library()
 
 @register.simple_tag(takes_context=True)
 def backgrounds(context, tag):
-    context['backgrounds'] = Background.objects.filter(language=context['request'].LANGUAGE_CODE, tag=tag).order_by('?')
+    language = context['request'].META['LANGUAGE']
+    if ':' in language:
+        language = language.split(':')[1]
+    context['backgrounds'] = Background.objects.filter(language=language, tag=tag).order_by('?')
     return ''
 
 @register.simple_tag
