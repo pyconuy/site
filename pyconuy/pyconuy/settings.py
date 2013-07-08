@@ -123,6 +123,7 @@ INSTALLED_APPS = (
     'cms.plugins.picture',
     #'cms.plugins.teaser',
     'cms.plugins.text',
+    'cms.plugins.video',
     #'cms.plugins.video',
     #'cms.plugins.twitter',
     'djangocms_utils',
