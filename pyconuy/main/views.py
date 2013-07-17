@@ -110,5 +110,6 @@ def proposals(request):
 
 def talks(request):
     return render_to_response('talks.html',
-        {'proposals': Proposal.objects.filter(cancelled=False).order_by('speaker__invite_token')},
+        {'proposals': Proposal.objects.exclude(approval__isnull=True).filter(
+            cancelled=False).order_by('speaker__invite_token')},
         context_instance=RequestContext(request))
