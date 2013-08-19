@@ -45,8 +45,7 @@ class SiteConfig(models.Model):
     venue_name = models.CharField(max_length=100, blank=True, null=True)
     venue_long_name = models.CharField(max_length=200, blank=True, null=True)
     venue_address = models.CharField(max_length=200, blank=True, null=True)
-    venue_latitude = models.FloatField(null=True, blank=True)
-    venue_longitude = models.FloatField(null=True, blank=True)
+    venue_link = models.CharField(max_length=250, blank=True, null=True)
 
     def __unicode__(self):
         return unicode(self.site)

@@ -150,8 +150,8 @@
                         <p class="text-bottom">{{ config.venue_address }}</p>
                         {% endif %}
                     </div>
-                    {% if config.venue_latitude and config.venue_longitude %}
-                    <a rel="nofollow" href="https://maps.google.com.uy/maps?q=latu&hl=en&ll={{ config.venue_latitude }},{{ config.venue_longitude }}&spn=0.009805,0.021136&fb=1&gl=uy&hq=latu&hnear=0x959f80ffc63bf7d3:0x6b321b2e355bec99,Montevideo&cid=0,0,10519268855607095324&t=m&z=16&iwloc=A" class="button button-blue over pull-right">
+                    {% if config.venue_link %}
+                    <a rel="nofollow" href="{{ config.venue_link }}">
                         {% trans 'View map' %}
                     </a>
                     {% endif %}
