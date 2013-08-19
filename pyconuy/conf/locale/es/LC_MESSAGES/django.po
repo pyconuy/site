@@ -1,17 +1,13 @@
 # This file is distributed under the same license as the Django package.
 #
 # Translators:
-# Antoni Aloy <antoni.aloy@trespams.com>, 2011, 2012.
-# Diego Schulz <dschulz@gmail.com>, 2012.
-# franchukelly <fcocuadrado@gmail.com>, 2011.
-# Jannis Leidel <jannis@leidel.info>, 2011.
-# Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2011.
-# Marc Garcia <garcia.marc@gmail.com>, 2011.
+# Martín Prunell <martin.prunell@gmail.com>, 2012.
+# Sebastián Sassi<ssassi@gmail.com>, 2012, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: Django\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-08-19 18:26-0300\n"
+"POT-Creation-Date: 2013-08-19 19:09-0300\n"
 "PO-Revision-Date: 2012-03-13 19:44+0000\n"
 "Last-Translator: Antoni Aloy <antoni.aloy@trespams.com>\n"
 "Language-Team: Spanish (Castilian) (http://www.transifex.net/projects/p/"
@@ -364,51 +360,51 @@ msgstr "Mostrar siempre"
 msgid "User must not be authenticated"
 msgstr "El usuario no debe estar autenticado"
 
-#: main/templates/index.html:9
+#: main/templates/index.html:10
 msgid "Home"
 msgstr "Inicio"
 
-#: main/templates/index.html:10
+#: main/templates/index.html:11
 msgid "PyCon Home"
 msgstr "PyCon Inicio"
 
-#: main/templates/index.html:20 main/templates/speakers.html:53
+#: main/templates/index.html:21 main/templates/speakers.html:53
 #: main/templates/talks.html:52
 msgid "Register now!"
 msgstr "Inscríbete ahora!"
 
-#: main/templates/index.html:21
+#: main/templates/index.html:22
 msgid "View talks"
 msgstr "Ver charlas"
 
-#: main/templates/index.html:36
+#: main/templates/index.html:37
 msgid "by"
 msgstr "por"
 
-#: main/templates/index.html:49 main/templates/sponsors.html:8
+#: main/templates/index.html:50 main/templates/sponsors.html:8
 #: main/templates/sponsors.html.py:21 templates/base.html:101
 msgid "Sponsors"
 msgstr "Sponsors"
 
-#: main/templates/index.html:49
+#: main/templates/index.html:50
 msgid "What important companies are behind this?"
 msgstr "¿Qué empresas importantes están detrás de todo esto?"
 
-#: main/templates/index.html:65
+#: main/templates/index.html:66
 msgid "View full list of Sponsors"
 msgstr "Ver lista completa de Sponsors"
 
-#: main/templates/index.html:75 templates/base.html:69
+#: main/templates/index.html:76 templates/base.html:69
 #: templates/base.html.py:149
 msgid "About"
 msgstr "Acerca de"
 
-#: main/templates/index.html:75
+#: main/templates/index.html:76
 msgid "What is PyCon Uruguay?"
 msgstr "¿Qué es PyCon Uruguay?"
 
-#: main/templates/index.html:77
-#, fuzzy
+#: main/templates/index.html:80
+#, python-format
 msgid ""
 "\n"
 "                        <strong>PyCon</strong> is the annual conference for "
@@ -419,19 +415,22 @@ msgid ""
 "language in Uruguay and the region.\n"
 "                        Our objective is to offer universal access to Python "
 "and related tools, that's why we keep the registration at FREE cost, thanks "
-"to many voluntary workers and sponsors.\n"
+"to many <a href=\"%(volunteers_url)s\">volunteers</a> and <a href="
+"\"%(sponsors_url)s\">sponsors</a>.\n"
 "                        "
 msgstr ""
 "\n"
 "                <strong>PyCon</strong> es una conferencia anual orientada a "
 "la comunidad de usuarios y desarrolladores del lenguaje de programación de "
 "código-abierto Python.\n"
-"PyConUy 2012 es la primera edición de eventos PyCon, organizado por la "
-"comunidad uruguaya de Python. El éxito obtenido en el PyDay 2011, animó a "
-"los integrantes del Grupo de Usuarios Python en Uruguay PyUy, a emprender "
-"esta primera PyCon.                "
+"PyCon UY es el evento organizado por la comunidad uruguaya de Python que "
+"busca principalmente introducir y promover este maravilloso lenguaje en "
+"Uruguay y la región. Nuestro objetivo es ofrecer acceso universal a Python y "
+"sus herramientas, por ello hacemos el evento GRATUITO, gracias a muchos <a "
+"href=\"%(volunteers_url)s\">voluntarios</a> y <a href=\"%(sponsors_url)s"
+"\">sponsors</a>."
 
-#: main/templates/index.html:84
+#: main/templates/index.html:88
 msgid ""
 "We have been already conquered by python and are now committed to bringing "
 "it to the edge. It is time that you also meet it and start building "
@@ -441,88 +440,88 @@ msgstr ""
 "aprovecharlo al máximo. Es tiempo de que tú lo conozcas y comiences a "
 "construir el mejor software y a divertirnos juntos."
 
-#: main/templates/index.html:86
+#: main/templates/index.html:90
 msgid "> Read more"
 msgstr "> Leer más"
 
-#: main/templates/index.html:107 main/templates/proposal_add.html:8
+#: main/templates/index.html:111 main/templates/proposal_add.html:8
 #: main/templates/proposal_add.html.py:9 main/templates/proposal_add.html:12
 msgid "Send a proposal"
 msgstr "Enviar propuesta"
 
-#: main/templates/index.html:110
+#: main/templates/index.html:114
 msgid "Call for Proposals"
 msgstr "LLamado a propuestas"
 
-#: main/templates/index.html:113
+#: main/templates/index.html:117
 msgid "Opens"
 msgstr "Abren"
 
-#: main/templates/index.html:113 main/templates/index.html.py:114
-#: main/templates/index.html:115 main/templates/index.html.py:124
-#: main/templates/index.html:126 main/templates/index.html.py:127
-#: main/templates/index.html:141 main/templates/talks.html:48
+#: main/templates/index.html:117 main/templates/index.html.py:118
+#: main/templates/index.html:119 main/templates/index.html.py:128
+#: main/templates/index.html:130 main/templates/index.html.py:131
+#: main/templates/index.html:145 main/templates/talks.html:48
 #, fuzzy
 msgid "Coming soon!"
 msgstr "Próximamente..."
 
-#: main/templates/index.html:114
+#: main/templates/index.html:118
 msgid "Deadline"
 msgstr "Fin"
 
-#: main/templates/index.html:115
+#: main/templates/index.html:119
 msgid "Acceptance"
 msgstr "Aceptación"
 
-#: main/templates/index.html:122
+#: main/templates/index.html:126
 msgid "When"
 msgstr "Cuándo"
 
-#: main/templates/index.html:122
+#: main/templates/index.html:126
 msgid "What appointments should I cancel?"
 msgstr "¿Qué citas cancelar?"
 
-#: main/templates/index.html:126 main/templates/talks.html:8
+#: main/templates/index.html:130 main/templates/talks.html:8
 #: main/templates/talks.html.py:21 templates/base.html:95
 msgid "Talks"
 msgstr "Charlas"
 
-#: main/templates/index.html:127
+#: main/templates/index.html:131
 msgid "Sprints"
 msgstr "Sprints"
 
-#: main/templates/index.html:131
+#: main/templates/index.html:135
 msgid "Schedule it"
 msgstr "Agéndalo"
 
-#: main/templates/index.html:137
+#: main/templates/index.html:141
 msgid "Where"
 msgstr "Dónde"
 
-#: main/templates/index.html:137
+#: main/templates/index.html:141
 msgid "Take me there!"
 msgstr "¡Llévame ahí!"
 
-#: main/templates/index.html:151
+#: main/templates/index.html:155
 #, fuzzy
 msgid "View map"
 msgstr "Ver charlas"
 
-#: main/templates/index.html:159
+#: main/templates/index.html:163
 msgid "Videos"
-msgstr ""
+msgstr "Videos "
 
-#: main/templates/index.html:159
+#: main/templates/index.html:163
 msgid "Watch the talks"
-msgstr ""
+msgstr "Mira las charlas"
 
-#: main/templates/index.html:162
+#: main/templates/index.html:166
 msgid "Don't miss any detail, watch your favorite talks again."
 msgstr ""
 
-#: main/templates/index.html:163 templates/base.html:75
+#: main/templates/index.html:167 templates/base.html:75
 msgid "Event videos"
-msgstr ""
+msgstr "Videos del Evento"
 
 #: main/templates/proposal_add.html:17
 msgid "Your proposal:"
@@ -707,9 +706,8 @@ msgid "Internal Server Error"
 msgstr "Error interno del servidor"
 
 #: templates/base.html:71
-#, fuzzy
 msgid "What is PyCon?"
-msgstr "¿Qué es PyCon Uruguay?"
+msgstr "¿Qué es PyCon?"
 
 #: templates/base.html:72
 msgid "Code of Conduct"
@@ -1028,28 +1026,6 @@ msgstr "Sitio construido y alojado por"
 #~ "              Ya hemos sido conquistados por python y ahora estamos "
 #~ "comprometidos a traerlo a la orilla. Es tiempo de que tu lo conozcas y "
 #~ "comiences a contruir hermoso software juntos.\n"
-#~ "                "
-
-#~ msgid ""
-#~ "PyCon is the annual conference for the community using and developing the "
-#~ "open-source Python programming language.\n"
-#~ "                <strong>PyConUy 2012 is the first edition</strong> of the "
-#~ "PyCon event organized by the Uruguayan Python community that mainly seeks "
-#~ "to introduce and promote this wonderful language in Uruguay and the "
-#~ "region.\n"
-#~ "                Our goal is to offer universal access to Python and "
-#~ "related tools, that's why we keep the registration at FREE cost, thanks "
-#~ "to many volunteers and sponsors.\n"
-#~ "                "
-#~ msgstr ""
-#~ "Pycon es la confrencia anual para la comunidad usando y desarrollando el "
-#~ "lenguaje de programación de código-abierto Python. \n"
-#~ "\t\t\t\t<strong>PyConUy 2012 es la primera edición</strong> del evento "
-#~ "PyCon organizado por la comunidad Uruguaya de Python que sobretodo busca "
-#~ "introducir y promover este hermoso lenguaje en Uruguay y la región.\n"
-#~ "\t\t\t\tNuestra meta es ofrecer acceso universal hacia Python y sus "
-#~ "herramientas relacionadas, por eso es que mantenemos el registro GRATIS "
-#~ "gracias a muchos voluntarios y sponsors.\n"
 #~ "                "
 
 #~ msgid "Arabic"

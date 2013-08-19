@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% load cms_tags %}
+{% load sekizai_tags %}
 {% load background_tags  %}
 {% load static from staticfiles %}
 {% load url from future %}
@@ -74,11 +75,14 @@
                 <div class="span6">
                     <h1>{% trans "About" %}<small class="small">{% trans 'What is PyCon Uruguay?' %}</small></h1>
                     <p class="box-text">
+                        {% url 'main:sponsors' as sponsors_url %}
+                        {% with "volunteers" as volunteers_url %}
                         {% blocktrans %}
                         <strong>PyCon</strong> is the annual conference for the community using and developing the open-source Python programming language.
                         PyCon UY is an event organized by the Uruguayan Python community that mainly seeks to introduce and promote this wonderful language in Uruguay and the region.
-                        Our objective is to offer universal access to Python and related tools, that's why we keep the registration at FREE cost, thanks to many voluntary workers and sponsors.
+                        Our objective is to offer universal access to Python and related tools, that's why we keep the registration at FREE cost, thanks to many <a href="{{ volunteers_url }}">volunteers</a> and <a href="{{ sponsors_url }}">sponsors</a>.
                         {% endblocktrans %}
+                        {% endwith %}
                     </p>
                     <p class="about-small">
                         {% blocktrans %}We have been already conquered by python and are now committed to bringing it to the edge. It is time that you also meet it and start building beautiful software together.{% endblocktrans %}
