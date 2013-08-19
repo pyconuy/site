@@ -52,3 +52,7 @@
 .index .box-social {
     margin-top: 40px;
 }
+
+ul.box-text li {
+    margin: 6px 0;
+}
