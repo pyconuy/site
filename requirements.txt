@@ -1,27 +1,29 @@
-Django==1.5
+Django==1.5.4
 Markdown==2.2.0
 Pillow==2.0.0
-South==0.7.6
+Pinax==0.9a2
+South==0.8.2
 argparse==1.2.1
--e git://github.com/earle/django-bootstrap.git@9ec5697aee8fed5b612ac8a0a40bb1921e9390e8#egg=django-bootstrap-dev
--e git://github.com/fivethreeo/cmsplugin-blog.git@1660d9bf816895360fb879338c5b75cb338c6fd4#egg=cmsplugin_blog-dev
+-e git://github.com/earle/django-bootstrap.git@9ec5697aee8fed5b612ac8a0a40bb1921e9390e8#egg=bootstrap-dev
+-e git://github.com/Troyhy/cmsplugin-blog.git@HEAD#egg=cmsplugin_blog-dev
+distribute==0.6.27
 django-appconf==0.5
-django-classy-tags==0.3.4.1
-django-cms==2.4
+django-classy-tags==0.4
+django-cms==2.4.2
 django-debug-toolbar==0.9.4
+django-email-confirmation==0.2
 django-markitup==1.0.0
-django-missing==0.1.5
+django-missing==0.1.11
 django-mptt==0.5.2
 django-sekizai==0.7
 django-staticfiles==1.2.1
 django-tagging==0.3.1
+django-timezones==0.2
 djangocms-utils==0.9.5
-html5lib==0.95
+html5lib==1.0b3
 icalendar==3.0.1b2
 psycopg2==2.4.5
 pytz==2012d
 simple-translation==0.8.6
+six==1.4.1
 wsgiref==0.1.2
-django-email-confirmation==0.2
-django-timezones==0.2
-Pinax==0.9a2

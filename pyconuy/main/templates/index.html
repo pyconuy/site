@@ -44,6 +44,20 @@
 {% endblock %}
 
 {% block content %}
+    <div class="row speakers">
+        <div class="span12">
+            {% load i18n placeholder_tags cmsplugin_blog_tags simple_translation_tags %}
+            {% for entry in entries|annotate_with_translations %}
+                {% with entry|get_preferred_translation_from_request:request as title %}
+                    {% with entry.placeholders|choose_placeholder:"excerpt" as excerpt %}
+                        <h1><a href="{{ title.get_absolute_url }}">{{ title }}</a></h1>
+                        {% render_placeholder excerpt %}
+                    {% endwith %}
+                {% endwith %}
+            {% endfor %}
+            <a class="button button-blue pull-right" href="{% page_url 'blog' %}">{% trans 'Blog' %}</a>
+        </div>
+    </div>
     {% if config.show_sponsors %}
     <div class="row sponsors">
         <div class="span12">

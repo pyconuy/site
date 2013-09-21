@@ -158,7 +158,7 @@ MARKITUP_MEDIA_URL = STATIC_URL
 JQUERY_JS = '/static/jquery/js/jquery.js'
 JQUERY_UI_JS = '/static/jquery/js/jquery-ui.js'
 JQUERY_UI_CSS = '/static/jquery/css/jquery-ui.css'
-CMSPLUGIN_BLOG_PLACEHOLDERS = ('text',)
+CMSPLUGIN_BLOG_PLACEHOLDERS = ('text', 'excerpt',)
 
 LOGGING = {
     'version': 1,

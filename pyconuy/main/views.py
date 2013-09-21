@@ -9,11 +9,16 @@ from conference.models import Speaker, Proposal, Presentation, Sponsor, Presenta
 from conference.utils import send_email
 from main.forms import ProposalForm
 
+from simple_translation.middleware import filter_queryset_language
+from cmsplugin_blog.models import Entry
+
 
 def index(request):
     return render_to_response('index.html',
-        {'sponsors':Sponsor.objects.filter(active=True).order_by('level__order', 'contact_name')},
-        context_instance=RequestContext(request))
+        {
+            'entries': filter_queryset_language(request, Entry.objects.all()).order_by('-pub_date')[:1],
+            'sponsors':Sponsor.objects.filter(active=True).order_by('level__order', 'contact_name')
+        }, context_instance=RequestContext(request))
 
 
 @login_required
