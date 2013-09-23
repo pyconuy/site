@@ -1,6 +1,14 @@
 {% extends "base.html" %}
 
 {% load cms_tags i18n %}
+{% load static from staticfiles %}
+
+{% block class %}{{ block.super }} blog{% endblock %}
+
+{% block css %}
+    {{ block.super }}
+    <link href="{% static 'css/blog.css' %}" rel="stylesheet">
+{% endblock %}
 
 {% block content %}
     {% if object_list %}

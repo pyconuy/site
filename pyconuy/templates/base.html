@@ -79,7 +79,11 @@
                             </ul>
                         </li>
                         <li class="menu pull-left">
-                            <a href="{% url 'account:sign_up' %}">{% trans 'Registration' %}</a>
+                            {% if user.is_authenticated %}
+                            <a href="{% url 'account:profile' %}">{% trans 'My Profile' %}</a>
+                            {% else %}
+                            <a href="{% url 'account:sign' %}">{% trans 'Registration' %}</a>
+                            {% endif %}
                             <ul>
                                 {% if user.is_authenticated %}
                                     <li><a class="sub_menu" href="{% url 'account:profile' %}">{% trans 'My Profile' %}</a></li>
