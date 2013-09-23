@@ -74,6 +74,7 @@
                                 {% if settings.SHOW_VIDEOS_OPTION %}
                                 <li><a class="sub_menu" href="{% page_url 'event-videos' %}">{% trans 'Event videos' %}</a></li>
                                 {% endif %}
+                                <li><a class="sub_menu" href="{% page_url 'blog' %}">{% trans 'Blog' %}</a></li>
                                 <li><a class="sub_menu" href="http://2012.uy.pycon.org/">PyCon 2012</a></li>
                             </ul>
                         </li>
@@ -118,9 +119,9 @@
                         <li><a class="sub_menu" href="{% url 'account:sign' %}">{% trans 'Sign In' %}</a></li>
                         {% endif %}
                         {% if LANGUAGE_CODE == 'es' %}
-                        <li><a  href="/en/"><img class="flags" src="{% static 'img/gb.png' %}" /> English</a></li>
+                        <li><a  href="/en/"><img class="flags" src="{% static 'img/gb.png' %}" /></a></li>
                         {% else %}
-                        <li><a href="/es/"><img class="flags" src="{% static 'img/es.png' %}" /> Español</a></li>
+                        <li><a href="/es/"><img class="flags" src="{% static 'img/es.png' %}" /></a></li>
                         {% endif %}
                     </div>
                 </div>
