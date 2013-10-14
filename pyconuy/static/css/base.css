@@ -313,6 +313,11 @@ footer .rights a:hover {
     overflow: hidden;
 }
 
+.Kryptonite .sponsor-logo{
+    width: 235px;
+    height: 150px;
+}
+
 .Diamond .sponsor-logo{
     width: 220px;
     height: 139px;
@@ -338,6 +343,10 @@ footer .rights a:hover {
 
 .Supporting .sponsor-logo:hover img {
     margin-top: -32px;
+}
+
+.Kryptonite .sponsor-logo:hover img {
+    margin-top: 0;
 }
 
 .Diamond .sponsor-logo:hover img {
