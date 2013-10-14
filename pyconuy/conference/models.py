@@ -8,9 +8,10 @@ from django.db.models import Q
 from django.core.urlresolvers import reverse
 from django.contrib.auth.models import User
 from django.contrib.contenttypes.models import ContentType
-from markitup.fields import MarkupField
-from conference.utils import send_email
 
+from markitup.fields import MarkupField
+
+from conference.utils import send_email
 from conference.managers import SponsorManager
 from conference import SPONSOR_COORDINATORS
 
@@ -171,8 +172,7 @@ class Session(models.Model):
     track = models.ForeignKey(Track, null=True, related_name="sessions")
 
     def sorted_slots(self):
-        ct = ContentType.objects.get_for_model(Presentation)
-        return self.slots.filter(kind=ct).order_by("start")
+        return self.slots.order_by("start")
 
     # @@@ cache?
     def start(self):
@@ -190,6 +190,13 @@ class Session(models.Model):
         else:
             return None
 
+    # @@@ cache?
+    @property
+    def date(self):
+        slots = self.sorted_slots()
+        if slots:
+            return slots[0].start.date()
+
     def __unicode__(self):
         start = self.start()
         end = self.end()
@@ -199,23 +206,48 @@ class Session(models.Model):
                 start.strftime("%X"),
                 end.strftime("%X")
             )
-        return u""
+        return u"Session {0}".format(self.id)
 
 
 class Slot(models.Model):
+    KIND_PRESENTATION = 0
+    KIND_BREAK = 1
+    KIND_ACCREDITATION = 2
+    KIND_CLOSE = 3
+    KIND_INTRODUCTIONS = 4
+
+    KINDS = (
+        (KIND_PRESENTATION, _('Presentation')),
+        (KIND_BREAK, _('Break')),
+        (KIND_ACCREDITATION, _('Accreditations')),
+        (KIND_CLOSE, _('Close - Draws')),
+        (KIND_INTRODUCTIONS, _('Introductions')),
+    )
+
+    KINDS_CLASSES = {
+        KIND_PRESENTATION: None,
+        KIND_BREAK: 'break',
+        KIND_ACCREDITATION: 'accreditation',
+        KIND_CLOSE: 'accreditation',
+        KIND_INTRODUCTIONS: 'break',
+    }
 
     title = models.CharField(max_length=100, null=True, blank=True)
     start = models.DateTimeField()
     end = models.DateTimeField()
-    kind = models.ForeignKey(ContentType, null=True, blank=True)
     track = models.ForeignKey(Track, null=True, blank=True, related_name="slots")
     session = models.ForeignKey(Session, null=True, blank=True, related_name="slots")
+    kind = models.IntegerField(default=0, choices=KINDS)
 
-    def content(self):
-        if self.kind_id:
-            return self.kind.get_object_for_this_type(slot=self)
-        else:
-            return None
+    def is_presentation(self):
+        return self.kind == Slot.KIND_PRESENTATION
+
+    def get_class(self):
+        return Slot.KINDS_CLASSES[self.kind]
+
+    def get_presentation(self):
+        if self.is_presentation():
+            return Presentation.objects.get(slot=self)
 
     def assign(self, content, old_content=None):
         if old_content is not None:
