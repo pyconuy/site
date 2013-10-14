@@ -80,7 +80,8 @@ admin.site.register(Track,
 )
 
 admin.site.register(Slot,
-                    list_display=["pk", "title", "start", "end", "track"]
+                    list_display=["pk", "kind", "title", "start", "end", "track"],
+                    list_filter=['kind', 'track'],
 )
 
 admin.site.register(Presentation,

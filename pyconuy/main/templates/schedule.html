@@ -14,66 +14,49 @@
 
 {% block class %}no-slider about{% endblock %}
 {% block content %}
-    <div class="row">
-        <div class="span12">
-            <h1>{% trans 'Schedule Saturday November 10, 2013' %}</h1>
-        </div>
-    </div>
-    <div class="row">
-        <div class="span12">
-            <table class="table  table-bordered table-condensed">
-                <thead>
-                    <tr>
-                        <th>{% trans 'Time' %}</th><th>{% trans 'Level' %}</th><th>{% trans 'Talk' %}</th><th>{% trans 'Presenter' %}</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for session in presentations_group %}
-                        {% if session.0 == '1' %}
-                        <tr class="accreditation">
-                            <td>9:00</td>
-                            <td colspan=3>{% trans 'Accreditations' %}</td>
-                        </tr>
-                        <tr class="break">
-                            <td>9:30</td>
-                            <td colspan=3>{% trans 'Introductions' %}</td>
-                        </tr>
-                        {% endif %}
-                        {% if session.0 == '2' %}
-                        <tr class="break">
-                            <td>11:35</td>
-                            <td colspan=3>{% trans 'Coffe break' %}</td>
-                        </tr>
-                        {% endif %}
-                        {% if session.0 == '3' %}
-                        <tr class="break">
-                            <td>13:30</td>
-                            <td colspan=3>{% trans 'Lunch' %}</td>
-                        </tr>
-                        {% endif %}
-                        {% if session.0 == '4' %}
-                        <tr class="break">
-                            <td>16:35</td>
-                            <td colspan=3>{% trans 'Coffe break' %}</td>
-                        </tr>
-                        {% endif %}
-                        {% for presentation in session.1 %}
-                            <tr>
-                                <td>{{ presentation.slot.start|date:"H:i" }}</td>
-                                <td>{{ presentation.get_audience_level_display }}</td>
-                                <td><a href="{% url 'main:talks' %}#{{ presentation.title }}">{{ presentation.title }}</a></td>
-                                <td><a href="{% url 'main:speakers' %}#{{ presentation.speaker.name }}">{{ presentation.speaker.name }}</a></td>
-                            </tr>
-                        {% endfor %}
+
+    {% regroup sessions by date as days %}
+
+    {% for day in days %}
+        {% if day.grouper %}
+            <div class="row">
+                <div class="span12">
+                    <h1>{{ day.grouper }}</h1>
+
+                    {% for session in day.list %}
+                        <table class="table  table-bordered table-condensed">
+                            <thead>
+                                <tr>
+                                    <th>{% trans 'Time' %}</th><th>{% trans 'Level' %}</th><th>{% trans 'Talk' %}</th><th>{% trans 'Presenter' %}</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                {% for slot in session.sorted_slots %}
+                                    {% if slot.is_presentation %}
+                                        {% with slot.get_presentation as presentation %}
+                                            <tr>
+                                                <td>{{ presentation.slot.start|date:'H:i' }}</td>
+                                                <td>{{ presentation.get_audience_level_display }}</td>
+                                                <td><a href="{% url 'main:talks' %}#{{ presentation.title }}">{{ presentation.title }}</a></td>
+                                                <td><a href="{% url 'main:speakers' %}#{{ presentation.speaker.name }}">{{ presentation.speaker.name }}</a></td>
+                                            </tr>
+                                        {% endwith %}
+                                    {% else %}
+                                        <tr class="{{ slot.get_class }}">
+                                            <td>{{ slot.start|date:'H:i' }}</td>
+                                            <td colspan=3>{{ slot.get_kind_display }}</td>
+                                        </tr>
+                                    {% endif %}
+                                {% endfor %}
+                            </tbody>
+                        </table>
                     {% endfor %}
-                    <tr class="accreditation">
-                        <td>18:15</td>
-                        <td colspan=3>{% trans 'Close - Draws' %}</td>
-                    </tr>                        
-                </tbody>
-            </table>
-        </div>
-    </div>
+                </div>
+            </div>
+        {% endif %}
+    {% endfor %}
+
     <div class="row">
         <div class="span12">
             <a class="button button-yellow" href="{% url 'account:sign_up' %}">{% trans 'Sign up now!' %}</a>

@@ -5,7 +5,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 from django.conf import settings
-from conference.models import Speaker, Proposal, Presentation, Sponsor, PresentationCategory
+from conference.models import Speaker, Proposal, Presentation, Sponsor, PresentationCategory, Session
 from conference.utils import send_email
 from main.forms import ProposalForm
 
@@ -77,6 +77,11 @@ def proposal_sent(request):
     return render_to_response('proposal_sent.html', context_instance=RequestContext(request))
 
 def schedule(request):
+    return render_to_response('schedule.html', {
+        'sessions': Session.objects.all()
+    }, context_instance=RequestContext(request))
+
+    """
     regroup = {}
     presentations = Presentation.objects.all().order_by('slot__start')
     if presentations.count() > 0:
@@ -99,6 +104,7 @@ def schedule(request):
     return render_to_response('schedule.html',
         {'presentations_group': regroup},
         context_instance=RequestContext(request))
+    """
 
 def sponsors(request):
     return render_to_response('sponsors.html',
