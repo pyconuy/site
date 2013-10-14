@@ -307,7 +307,7 @@ footer .rights a:hover {
 }
 .sponsor-logo {
     width: 185px;
-    height: 46px;
+    height: 56px;
     float: left;
     margin: 0 10px 10px 0;
     overflow: hidden;
@@ -333,7 +333,7 @@ footer .rights a:hover {
 }
 
 .sponsor-logo:hover img {
-    margin-top: -46px;
+    margin-top: -56px;
 }
 
 .Supporting .sponsor-logo:hover img {
