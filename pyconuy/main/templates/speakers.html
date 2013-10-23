@@ -8,10 +8,6 @@
 {% block meta_title %}{% trans 'Speakers' %} - {{ block.super }}{% endblock %}
 {% block meta_description %}{% trans 'Speakers PyCon 2013 Uruguay' %}{% endblock %}
 
-{% block css %}
-{{ block.super }}
-{% endblock %}
-
 {% block class %}no-slider speakers{% endblock %}
 {% block content %}
 <div class="row">
@@ -26,7 +22,9 @@
         <div class="row speaker">
             <div class="span3">
                 {% if speaker.photo %}
-                <img src="{{ speaker.photo.url }}" alt="{{ speaker.name }}" />
+                    <img src="{{ speaker.photo.url }}" alt="{{ speaker.name }}" />
+                {% else %}
+                    <img src="{{ STATIC_URL }}/img/silhouette.png" alt="{{ speaker.name }}">
                 {% endif %}
             </div>
             <div class="span9">
