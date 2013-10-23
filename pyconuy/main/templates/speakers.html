@@ -25,7 +25,9 @@
         <a name="{{speaker.name}}"></a>
         <div class="row speaker">
             <div class="span3">
+                {% if speaker.photo %}
                 <img src="{{ speaker.photo.url }}" alt="{{ speaker.name }}" />
+                {% endif %}
             </div>
             <div class="span9">
                 <div class="row">
