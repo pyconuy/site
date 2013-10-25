@@ -27,3 +27,4 @@ pytz==2012d
 simple-translation==0.8.6
 six==1.4.1
 wsgiref==0.1.2
+Fabric==1.8.0
