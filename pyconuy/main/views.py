@@ -17,7 +17,7 @@ def index(request):
     return render_to_response('index.html',
         {
             'entries': filter_queryset_language(request, Entry.published.all()).order_by('-pub_date')[:1],
-            'sponsors':Sponsor.objects.filter(active=True).order_by('level__order', 'contact_name')
+            'sponsors':Sponsor.objects.filter(active=True).order_by('level__order', 'added')
         }, context_instance=RequestContext(request))
 
 
@@ -108,7 +108,7 @@ def schedule(request):
 
 def sponsors(request):
     return render_to_response('sponsors.html',
-        {'sponsors': Sponsor.objects.filter(active=True).order_by('level__order', 'contact_name')},
+        {'sponsors': Sponsor.objects.filter(active=True).order_by('level__order', 'added')},
         context_instance=RequestContext(request))
 
 def speakers(request):
