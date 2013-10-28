@@ -36,6 +36,16 @@
                     {% endif %}
                 </div>
                 <a href="{% url 'main:speakers' %}#{{proposal.speaker.name}}">{{proposal.speaker.name}}</a>
+
+                {% for speaker in proposal.additional_speakers.all %}
+                    <hr/>
+                    <div>
+                        {% if speaker.photo %}
+                        <img src="{{ speaker.photo.url }}" alt="{{ speaker.name }}" />
+                        {% endif %}
+                    </div>
+                    <a href="{% url 'main:speakers' %}#{{speaker.name}}">{{speaker.name}}</a>
+                {% endfor %}
             </div>
             <div class="span9">
                 {{ proposal.description }}

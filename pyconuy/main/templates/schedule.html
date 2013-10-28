@@ -39,7 +39,9 @@
                                                 <td>{{ presentation.slot.start|date:'H:i' }}</td>
                                                 <td>{{ presentation.get_audience_level_display }}</td>
                                                 <td><a href="{% url 'main:talks' %}#{{ presentation.title }}">{{ presentation.title }}</a></td>
-                                                <td><a href="{% url 'main:speakers' %}#{{ presentation.speaker.name }}">{{ presentation.speaker.name }}</a></td>
+                                                <td>
+                                                    <a href="{% url 'main:speakers' %}#{{ presentation.speaker.name }}">{{ presentation.speaker.name }}</a>{% for speaker in presentation.additional_speakers.all %}, <a href="{% url 'main:speakers' %}#{{ speaker.name }}">{{ speaker.name }}</a>{% endfor %}
+                                                </td>
                                             </tr>
                                         {% endwith %}
                                     {% else %}
